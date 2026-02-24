@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "WpfLibraryImport": {
+      "commandName": "Project",
+      "nativeDebugging": true
+    }
+  }
+}

@@ -1,0 +1,209 @@
+﻿<UserControl
+    x:Class="WpfLibraryImport.Views.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:properties="clr-namespace:WpfLibraryImport.Properties"
+    Style="{StaticResource BaseUserControlStyle}"
+    mc:Ignorable="d"
+    d:DesignHeight="940" d:DesignWidth="1700">
+    
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>            
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <Grid Grid.Column="0">
+                <Border Margin="10" BorderBrush="Black" BorderThickness="1">
+                    <StackPanel Margin="15">
+                        <TextBlock Text="PInvoke Bool 리턴" FontSize="30" HorizontalAlignment="Center"/>
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                            <TextBlock Text="값 입력(0이 아니면 TRUE 리턴)" FontSize="23" VerticalAlignment="Center"/>
+                            <TextBox Margin="20" Text="{Binding BoolReturnInputValue}" Width="100" FontSize="23"/>
+                        </StackPanel>
+
+                        <Button Margin="10 20 10 0" Command="{Binding ButtonCommand}" CommandParameter="PInvoke_ReturnBoolValue_Legacy">
+                            <TextBlock Text="PInvoke_ReturnBoolValue Legacy" FontSize="23" VerticalAlignment="Center"/>
+                        </Button>
+
+                        <Button Margin="10 20 10 0" Command="{Binding ButtonCommand}" CommandParameter="PInvoke_ReturnBoolValue_Modern">
+                            <TextBlock Text="PInvoke_ReturnBoolValue Modern" FontSize="23" VerticalAlignment="Center"/>
+                        </Button>
+                    </StackPanel>
+                </Border>
+            </Grid>
+
+            <Grid Grid.Column="1">
+                <Border Margin="10" BorderBrush="Black" BorderThickness="1">
+                    <StackPanel Margin="15">
+                        <TextBlock Text="PInvoke Bool 입력" FontSize="30" HorizontalAlignment="Center"/>
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                            <TextBlock Text="값 입력(체크 시 TRUE)" FontSize="23" VerticalAlignment="Center"/>
+                            <CheckBox IsChecked="{Binding InputBoolValue}" Margin="20" HorizontalAlignment="Center">
+                                <CheckBox.LayoutTransform>
+                                    <ScaleTransform ScaleX="2.0" ScaleY="2.0" />
+                                </CheckBox.LayoutTransform>
+                            </CheckBox>
+                        </StackPanel>
+
+                        <Button Margin="10 20 10 0" Command="{Binding ButtonCommand}" CommandParameter="PInvoke_InputBoolValue_Legacy">
+                            <TextBlock Text="PInvoke_InputBoolValue Legacy" FontSize="23" VerticalAlignment="Center"/>
+                        </Button>
+
+                        <Button Margin="10 20 10 0" Command="{Binding ButtonCommand}" CommandParameter="PInvoke_InputBoolValue_Modern">
+                            <TextBlock Text="PInvoke_InputBoolValue Modern" FontSize="23" VerticalAlignment="Center"/>
+                        </Button>
+                    </StackPanel>
+                </Border>
+            </Grid>
+
+            <Grid Grid.Column="2">
+                <Border Margin="10" BorderBrush="Black" BorderThickness="1">
+                    <StackPanel Margin="15">
+                        <TextBlock Text="PInvoke String 입력" FontSize="30" HorizontalAlignment="Center"/>
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                            <TextBlock Text="값 입력" FontSize="23" VerticalAlignment="Center"/>
+                            <TextBox Margin="20" Text="{Binding InputStringValue}" Width="370" FontSize="23"/>
+                        </StackPanel>
+
+                        <Button Margin="10 20 10 0" Command="{Binding ButtonCommand}" CommandParameter="PInvoke_InputStringValue_Legacy">
+                            <TextBlock Text="PInvoke_InputStringValue Legacy" FontSize="23" VerticalAlignment="Center"/>
+                        </Button>
+
+                        <Button Margin="10 20 10 0" Command="{Binding ButtonCommand}" CommandParameter="PInvoke_InputStringValue_Modern">
+                            <TextBlock Text="PInvoke_InputStringValue Modern" FontSize="23" VerticalAlignment="Center"/>
+                        </Button>
+                    </StackPanel>
+                </Border>
+            </Grid>
+        </Grid>
+
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <Grid Grid.Column="0">
+                <Border Margin="10" BorderBrush="Black" BorderThickness="1">
+                    <StackPanel Margin="15">
+                        <TextBlock Text="PInvoke 구조체 입/출력" FontSize="30" HorizontalAlignment="Center"/>
+                        
+                        <StackPanel Margin="0 20 0 0" Orientation="Horizontal" HorizontalAlignment="Left">
+                            <TextBlock Margin="20 0 0 0" Text="Bool    " FontSize="23" VerticalAlignment="Center"/>
+                            <CheckBox IsChecked="{Binding SampleStruct.BoolValue}" Margin="20 0 0 0" HorizontalAlignment="Center">
+                                <CheckBox.LayoutTransform>
+                                    <ScaleTransform ScaleX="2.0" ScaleY="2.0" />
+                                </CheckBox.LayoutTransform>
+                            </CheckBox>
+                        </StackPanel>
+
+                        <StackPanel Margin="0 20 0 0" Orientation="Horizontal" HorizontalAlignment="Left">
+                            <TextBlock Margin="20 0 0 0" Text="Byte    " FontSize="23" VerticalAlignment="Center"/>
+                            <TextBox Margin="20 0 0 0" Text="{Binding SampleStruct.ByteValue}" Width="250" FontSize="23"/>
+                        </StackPanel>
+
+                        <StackPanel Margin="0 20 0 0" Orientation="Horizontal" HorizontalAlignment="Left">
+                            <TextBlock Margin="20 0 0 0" Text="Int      " FontSize="23" VerticalAlignment="Center"/>
+                            <TextBox Margin="20 0 0 0" Text="{Binding SampleStruct.IntValue}" Width="250" FontSize="23"/>
+                        </StackPanel>
+
+                        <StackPanel Margin="0 20 0 0" Orientation="Horizontal" HorizontalAlignment="Left">
+                            <TextBlock Margin="20 0 0 0" Text="Float   " FontSize="23" VerticalAlignment="Center"/>
+                            <TextBox Margin="20 0 0 0" Text="{Binding SampleStruct.FloatValue}" Width="250" FontSize="23"/>
+                        </StackPanel>
+
+                        <StackPanel Margin="0 20 0 0" Orientation="Horizontal" HorizontalAlignment="Left">
+                            <TextBlock Margin="20 0 0 0" Text="Double" FontSize="23" VerticalAlignment="Center"/>
+                            <TextBox Margin="20 0 0 0" Text="{Binding SampleStruct.DoubleValue}" Width="250" FontSize="23"/>
+                        </StackPanel>
+
+                        <StackPanel Margin="0 20 0 0" Orientation="Horizontal" HorizontalAlignment="Left">
+                            <TextBlock Margin="20 0 0 0" Text="Long   " FontSize="23" VerticalAlignment="Center"/>
+                            <TextBox Margin="20 0 0 0" Text="{Binding SampleStruct.LongValue}" Width="250" FontSize="23"/>
+                        </StackPanel>
+
+                        <StackPanel Margin="0 20 0 0" Orientation="Horizontal" HorizontalAlignment="Left">
+                            <TextBlock Margin="20 0 0 0" Text="String  " FontSize="23" VerticalAlignment="Center"/>
+                            <TextBox Margin="20 0 0 0" Text="{Binding SampleStruct.StringValue}" Width="550" FontSize="23"/>
+                        </StackPanel>
+
+                        <StackPanel Margin="10 20 10 0" Orientation="Horizontal">
+                            <Button Command="{Binding ButtonCommand}" Width="375" CommandParameter="PInvoke_InputStructValue_Legacy">
+                                <TextBlock Text="PInvoke_InputStructValue Legacy" FontSize="21" VerticalAlignment="Center"/>
+                            </Button>
+
+                            <Button Command="{Binding ButtonCommand}" Width="375" Margin ="20 0 0 0" CommandParameter="PInvoke_OutputStructValue_Legacy">
+                                <TextBlock Text="PInvoke_OutputStructValue Legacy" FontSize="21" VerticalAlignment="Center"/>
+                            </Button>
+                        </StackPanel>
+
+                        <StackPanel Margin="10 20 10 0" Orientation="Horizontal">
+                            <Button Command="{Binding ButtonCommand}" Width="375" CommandParameter="PInvoke_InputStructValue_Modern">
+                                <TextBlock Text="PInvoke_InputStructValue Modern" FontSize="21" VerticalAlignment="Center"/>
+                            </Button>
+
+                            <Button Command="{Binding ButtonCommand}" Width="375" Margin ="20 0 0 0" CommandParameter="PInvoke_OutputStructValue_Modern">
+                                <TextBlock Text="PInvoke_OutputStructValue Modern" FontSize="21" VerticalAlignment="Center"/>
+                            </Button>
+                        </StackPanel>
+                        
+                    </StackPanel>
+                </Border>
+            </Grid>
+
+            <Grid Grid.Column="1">
+                <Border Margin="10" BorderBrush="Black" BorderThickness="1">
+                    <StackPanel Margin="15">
+                        
+                        <TextBlock Text="PInvoke 배열 멤버가 있는 구조체 입/출력" FontSize="30" HorizontalAlignment="Center"/>
+
+                        <StackPanel Margin="0 20 0 0" Orientation="Horizontal" HorizontalAlignment="Left">
+                            <TextBlock Margin="20 0 0 0" Text="Int Array   " FontSize="23" VerticalAlignment="Center"/>
+                            <TextBox Margin="20 0 0 0" Text="{Binding SampleArrayStruct.IntArray[0]}" Width="150" FontSize="23"/>
+                            <TextBox Margin="20 0 0 0" Text="{Binding SampleArrayStruct.IntArray[1]}" Width="150" FontSize="23"/>
+                            <TextBox Margin="20 0 0 0" Text="{Binding SampleArrayStruct.IntArray[2]}" Width="150" FontSize="23"/>
+                        </StackPanel>
+
+                        <StackPanel Margin="0 20 0 0" Orientation="Horizontal" HorizontalAlignment="Left">
+                            <TextBlock Margin="20 0 0 0" Text="Float Array" FontSize="23" VerticalAlignment="Center"/>
+                            <TextBox Margin="20 0 0 0" Text="{Binding SampleArrayStruct.FloatArray[0]}" Width="150" FontSize="23"/>
+                            <TextBox Margin="20 0 0 0" Text="{Binding SampleArrayStruct.FloatArray[1]}" Width="150" FontSize="23"/>
+                            <TextBox Margin="20 0 0 0" Text="{Binding SampleArrayStruct.FloatArray[2]}" Width="150" FontSize="23"/>
+                        </StackPanel>
+
+                        <StackPanel Margin="10 20 10 0" Orientation="Horizontal">
+                            <Button Command="{Binding ButtonCommand}" Width="375" CommandParameter="PInvoke_InputStructWithArrayValue_Legacy">
+                                <TextBlock Text="PInvoke_InputStructArrayValue Legacy" FontSize="18" VerticalAlignment="Center"/>
+                            </Button>
+
+                            <Button Command="{Binding ButtonCommand}" Width="375" Margin ="20 0 0 0" CommandParameter="PInvoke_OutputStructWithArrayValue_Legacy">
+                                <TextBlock Text="PInvoke_OutputStructArrayValue Legacy" FontSize="18" VerticalAlignment="Center"/>
+                            </Button>
+                        </StackPanel>
+
+                        <StackPanel Margin="10 20 10 0" Orientation="Horizontal">
+                            <Button Command="{Binding ButtonCommand}" Width="375" CommandParameter="PInvoke_InputStructWithArrayValue_Modern">
+                                <TextBlock Text="PInvoke_InputStructArrayValue Modern" FontSize="18" VerticalAlignment="Center"/>
+                            </Button>
+
+                            <Button Command="{Binding ButtonCommand}" Width="375" Margin ="20 0 0 0" CommandParameter="PInvoke_OutputStructWithArrayValue_Modern">
+                                <TextBlock Text="PInvoke_OutputStructArrayValue Modern" FontSize="18" VerticalAlignment="Center"/>
+                            </Button>
+                        </StackPanel>
+
+                    </StackPanel>
+                </Border>
+            </Grid>
+        </Grid>        
+    </Grid>    
+</UserControl>

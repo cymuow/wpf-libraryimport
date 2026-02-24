@@ -1,0 +1,11 @@
+<Solution>
+  <Configurations>
+    <Platform Name="Any CPU" />
+    <Platform Name="x64" />
+    <Platform Name="x86" />
+  </Configurations>
+  <Project Path="Src/WpfLibraryImport.Core/WpfLibraryImport.Core.vcxproj" Id="929ac752-168f-427b-b106-57d3185fe360" />
+  <Project Path="Src/WpfLibraryImport/WpfLibraryImport.csproj">
+    <BuildDependency Project="Src/WpfLibraryImport.Core/WpfLibraryImport.Core.vcxproj" />
+  </Project>
+</Solution>
