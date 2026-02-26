@@ -12,7 +12,7 @@ public class LegacyPInvokeSample
     {
     }
 
-    [DllImport("WpfLibraryImport.Core")]
+    [DllImport("WpfLibraryImport.Core", CallingConvention = CallingConvention.Cdecl)]
     [return: MarshalAs(UnmanagedType.I1)]
     internal static extern bool PInvoke_ReturnBoolValue(int inputValue);
     public bool ReturnBoolValue(int inputValue)
@@ -27,7 +27,7 @@ public class LegacyPInvokeSample
         PInvoke_InputBoolValue(inputValue);
     }
 
-    [DllImport("WpfLibraryImport.Core")]
+    [DllImport("WpfLibraryImport.Core", CharSet = CharSet.Unicode)]
     internal static extern void PInvoke_InputStringValue(string inputValue);
     public void InputStringValue(string inputValue)
     {

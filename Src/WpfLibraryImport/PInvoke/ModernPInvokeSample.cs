@@ -1,4 +1,5 @@
-﻿using System.Runtime.InteropServices;
+﻿using System.Runtime.CompilerServices;
+using System.Runtime.InteropServices;
 using WpfLibraryImport.Models.Marshaling.Modern;
 
 namespace WpfLibraryImport.PInvoke;
@@ -14,6 +15,7 @@ public partial class ModernPInvokeSample
     }
 
     [LibraryImport("WpfLibraryImport.Core")]
+    [UnmanagedCallConv(CallConvs = new Type[] { typeof(CallConvCdecl) })]
     [return: MarshalAs(UnmanagedType.I1)]
     internal static partial bool PInvoke_ReturnBoolValue(int inputValue);
     public bool ReturnBoolValue(int inputValue)
